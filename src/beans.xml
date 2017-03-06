@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="stu1" className="study.spring.domain.Student" scope="prototype">
+		<property name="number" value="STUDENT_1001"/>
+		<property name="name" value="ygh"/>
+		<property name="age" value="18"/>
+		<property name="gender" value="male"/>
+		<!-- ref 必须是一个bean的id -->
+		<property name="teacher" ref="t1"></property>
+	</bean>
+	
+	<bean id="t1" className="study.spring.domain.Teacher">
+		<property name="number" value="TEACHER_101"></property>
+		<property name="name" value="cuiXifan"></property>
+		<property name="salary" value="123.456"></property>
+	</bean>
+	
+	<bean id="stu2" className="study.spring.domain.Student">
+		<property name="number" value="STUDENT_1001"/>
+		<property name="name" value="ygh"/>
+		<property name="age" value="18"/>
+		<property name="gender" value="male"/>
+		<!-- ref 必须是一个bean的id -->
+		<property name="teacher" ref="t1"></property>
+	</bean>
+	
+	<bean id="studentDao" className="study.spring.dao.impl.StudentDaoImpl1">
+	</bean>
+	
+	<bean id="studentService" className="study.spring.service.impl.StudentServiceImpl">
+		<property name="dao" ref="studentDao"></property>
+	</bean>
+</beans>
